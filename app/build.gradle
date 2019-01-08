@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -13,6 +15,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "HOTELS_URL", "\"https://api.test.hotelbeds.com/hotel-api/1.0/hotels\""
     }
     buildTypes {
         release {
@@ -33,6 +36,12 @@ dependencies {
 
     implementation "ru.terrakok.cicerone:cicerone:$ciceroneVersion"
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttpLogVersion"
     implementation "com.google.dagger:dagger:$dagger2Version"
     annotationProcessor "com.google.dagger:dagger-compiler:$dagger2Version"
+
+    // ViewModel and LiveData
+    implementation "android.arch.lifecycle:extensions:$lifecycle_version"
+
 }
