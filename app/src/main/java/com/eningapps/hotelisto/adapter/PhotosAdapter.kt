@@ -8,9 +8,16 @@ import com.eningapps.hotelisto.R
 import com.eningapps.hotelisto.view.PhotoViewHolder
 
 class PhotosAdapter(
-    private val items: List<String>,
     val context: Context
 ) : RecyclerView.Adapter<PhotoViewHolder>() {
+
+    private val items: ArrayList<String> = ArrayList()
+
+    fun updatePhotos(urls: List<String>) {
+        items.clear()
+        urls.forEach { items.add(it) }
+        notifyDataSetChanged()
+    }
 
     override fun getItemCount(): Int {
         return items.size
