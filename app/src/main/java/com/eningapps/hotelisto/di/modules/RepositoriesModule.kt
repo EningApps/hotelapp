@@ -12,6 +12,6 @@ abstract class RepositoriesModule {
 
     @Singleton
     @Binds
-    fun provideHotelsRepository(impl: HotelsRepositoryImpl): HotelsRepository = impl
+    abstract fun provideHotelsRepository(impl: HotelsRepositoryImpl): HotelsRepository
 
 }

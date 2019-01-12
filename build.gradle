@@ -28,9 +28,14 @@ task clean(type: Delete) {
 
 
 ext {
+    supportLibVersion = '27.1.1'
     ciceroneVersion = '4.0.2'
     retrofitVersion = '2.5.0'
     okhttpLogVersion = '3.12.1'
     dagger2Version = '2.20'
     lifecycle_version = '1.1.1'
+    apache_comon_codec_version = '1.5'
+    rxVersion = '2.2.5'
+    rxAndroidVersion = '2.1.0'
+    glideVersion = '4.8.0'
 }
