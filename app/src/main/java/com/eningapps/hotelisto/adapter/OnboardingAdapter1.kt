@@ -36,7 +36,7 @@ class OnboardingAdapter1(
     }
 
     override fun onBindViewHolder(holder: OnboardingListItemViewHolder, position: Int) {
-        holder.setImage(items[position].iconId)
-        holder.setText(items[position].title)
+        holder.iconImage.setImageResource(items[position].iconId)
+        holder.iconText.text = items[position].title
     }
 }
