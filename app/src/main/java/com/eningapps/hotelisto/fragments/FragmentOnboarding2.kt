@@ -13,7 +13,7 @@ import com.eningapps.hotelisto.utils.SpacesItemDecoration
 import kotlinx.android.synthetic.main.fragment_onboarding_list.*
 
 
-class FragmentOnboarding1 : Fragment() {
+class FragmentOnboarding2 : Fragment() {
 
     private val rvItems = arrayListOf(
         ItemWrapper(R.drawable.music, "Music"),
@@ -23,8 +23,7 @@ class FragmentOnboarding1 : Fragment() {
         ItemWrapper(R.drawable.education, "Education"),
         ItemWrapper(R.drawable.world, "Traveling"),
         ItemWrapper(R.drawable.games, "Videogames"),
-        ItemWrapper(R.drawable.tech, "Technologies"),
-        ItemWrapper(R.drawable.sport, "Sport")
+        ItemWrapper(R.drawable.tech, "Technologies")
     )
 
     override fun onCreateView(
@@ -41,7 +40,7 @@ class FragmentOnboarding1 : Fragment() {
         recyclerView.layoutManager = layoutManager
 
         recyclerView.adapter = adaper
-        recyclerView.addItemDecoration(SpacesItemDecoration(20));
+        recyclerView.addItemDecoration(SpacesItemDecoration(40));
         recyclerView.setHasFixedSize(true)
     }
 }

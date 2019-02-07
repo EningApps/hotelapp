@@ -5,25 +5,13 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.eningapps.hotelisto.R
+import com.eningapps.hotelisto.data.entities.ItemWrapper
 import com.eningapps.hotelisto.view.OnboardingListItemViewHolder
 
-class OnboardingAdapter1(
-    val context: Context
+class OnboardingAdapter(
+    val context: Context,
+    val items: List<ItemWrapper>
 ) : RecyclerView.Adapter<OnboardingListItemViewHolder>() {
-
-    private data class ItemWrapper(val iconId: Int, val title: String)
-
-    private val items = arrayListOf(
-        ItemWrapper(R.drawable.music, "Music"),
-        ItemWrapper(R.drawable.science, "Science"),
-        ItemWrapper(R.drawable.cinema, "Cinema"),
-        ItemWrapper(R.drawable.books, "Books"),
-        ItemWrapper(R.drawable.education, "Education"),
-        ItemWrapper(R.drawable.world, "Traveling"),
-        ItemWrapper(R.drawable.games, "Videogames"),
-        ItemWrapper(R.drawable.tech, "Technologies"),
-        ItemWrapper(R.drawable.sport, "Sport")
-    )
 
     override fun getItemCount(): Int {
         return items.size

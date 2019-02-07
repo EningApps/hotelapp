@@ -17,15 +17,13 @@ class MainViewModel @Inject constructor(
 
     val photosUrls: Observable<List<String>> = photosUrlsRelay
 
-    fun getData() {
-//        hotelsRepository
-//            .getRecentPhotos("")
-//            .subscribeOn(Schedulers.io())
-//            .observeOn(AndroidSchedulers.mainThread())
-//            .subscribe {
-//                photosUrlsRelay.onNext(it!!.map { it.url })
-//            }
+
+    fun onViewAttach() {
         router.navigateTo(Screens.ONBOARING.name)
+    }
+
+
+    fun getData() {
     }
 
 }

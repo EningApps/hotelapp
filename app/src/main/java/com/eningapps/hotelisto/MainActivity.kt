@@ -4,11 +4,9 @@ import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.GridLayoutManager
 import com.eningapps.hotelisto.adapter.PhotosAdapter
 import com.eningapps.hotelisto.navigation.MainNavigator
 import com.eningapps.hotelisto.viewmodel.MainViewModel
-import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 
@@ -32,16 +30,12 @@ class MainActivity : AppCompatActivity() {
         App.appComponent.inject(this)
         mainViewModel = ViewModelProviders.of(this, viewModelFactory)[MainViewModel::class.java]
         val navigatorHolder = App.appComponent.provideNavigatorHolder()
-        navigatorHolder.setNavigator(MainNavigator(supportFragmentManager, R.id.mainContainer))
-        getDataBtn.setOnClickListener { mainViewModel.getData() }
+        navigatorHolder.setNavigator(MainNavigator(supportFragmentManager, R.id.appContainer))
+    }
 
-        photosRecyclerView.layoutManager = GridLayoutManager(this, PHOTOS_GRID_COUNT)
-        photosRecyclerView.adapter = rvAdapter
-
-        mainViewModel
-            .photosUrls
-            .subscribe(loadPhotos)
-
+    override fun onStart() {
+        super.onStart()
+        mainViewModel.onViewAttach()
     }
 
     private val loadPhotos: (List<String>) -> Unit = { urls ->
