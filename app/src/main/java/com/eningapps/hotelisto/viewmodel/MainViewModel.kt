@@ -19,7 +19,7 @@ class MainViewModel @Inject constructor(
 
 
     fun onViewAttach() {
-        router.navigateTo(Screens.ONBOARING.name)
+        router.navigateTo(Screens.ONBOARING1.name)
     }
 
 

@@ -9,6 +9,7 @@ import android.text.style.UnderlineSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import com.eningapps.hotelisto.App
 import com.eningapps.hotelisto.R
 import com.eningapps.hotelisto.viewmodel.OnboardingViewModel
@@ -16,7 +17,7 @@ import kotlinx.android.synthetic.main.fragment_onboarding_welcome.view.*
 import javax.inject.Inject
 
 
-class FragmentOnboarding1 : Fragment() {
+class FragmentOnboarding4 : Fragment() {
 
 
     @Inject
@@ -30,15 +31,21 @@ class FragmentOnboarding1 : Fragment() {
     ): View? {
         App.appComponent.inject(this)
         viewModel = ViewModelProviders.of(this, viewModelFactory)[OnboardingViewModel::class.java]
-        return inflater.inflate(R.layout.fragment_onboarding_welcome, container, false)
+        return inflater.inflate(R.layout.fragment_onboarding_finish, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val content = SpannableString("NEXT")
+        val content = SpannableString("GO TO FEED")
         content.setSpan(UnderlineSpan(), 0, content.length, 0)
         view.continueBtn.text = content
         view.continueBtn.setOnClickListener {
             viewModel.continueClicked(OnboardingViewModel.OnboardingStep.STEP1)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val anim = AnimationUtils.loadAnimation(context, R.anim.zoom_in)
+        view?.titleContainer?.startAnimation(anim)
     }
 }

@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_onboarding_list.*
 import javax.inject.Inject
 
 
-class FragmentOnboarding2 : Fragment(), OnboardingAdapter.ItemClickListener {
+class FragmentOnboarding3 : Fragment(), OnboardingAdapter.ItemClickListener {
 
     private val choosenValues: MutableList<String> = ArrayList()
 
@@ -28,16 +28,15 @@ class FragmentOnboarding2 : Fragment(), OnboardingAdapter.ItemClickListener {
     private lateinit var viewModel: OnboardingViewModel
 
     private val rvItems = arrayListOf(
-        ItemWrapper(R.drawable.music, "Music"),
-        ItemWrapper(R.drawable.science, "Science"),
-        ItemWrapper(R.drawable.cinema, "Cinema"),
-        ItemWrapper(R.drawable.books, "Books"),
-        ItemWrapper(R.drawable.education, "Education"),
-        ItemWrapper(R.drawable.world, "Traveling"),
-        ItemWrapper(R.drawable.games, "Videogames"),
-        ItemWrapper(R.drawable.tech, "Technologies"),
-        ItemWrapper(R.drawable.art, "Art"),
-        ItemWrapper(R.drawable.sport, "Sport")
+        ItemWrapper(R.drawable.atom, "Physics"),
+        ItemWrapper(R.drawable.flasks, "Chemistry"),
+        ItemWrapper(R.drawable.axis, "Math"),
+        ItemWrapper(R.drawable.cell, "Biology"),
+        ItemWrapper(R.drawable.translate, "Languages"),
+        ItemWrapper(R.drawable.business, "Economics"),
+        ItemWrapper(R.drawable.filming, "Filming"),
+        ItemWrapper(R.drawable.online_course, "Online courses"),
+        ItemWrapper(R.drawable.online, "Technologies")
     )
 
     override fun onCreateView(
@@ -54,13 +53,13 @@ class FragmentOnboarding2 : Fragment(), OnboardingAdapter.ItemClickListener {
         val layoutManager = AutoFitGridLayoutManager(recyclerView.context, 500)
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = adaper
-        recyclerView.addItemDecoration(SpacesItemDecoration(60));
+        recyclerView.addItemDecoration(SpacesItemDecoration(40));
         recyclerView.setHasFixedSize(true)
-
         continueBtn.setOnClickListener {
             viewModel.addInterests(choosenValues)
-            viewModel.continueClicked(OnboardingViewModel.OnboardingStep.STEP2)
+            viewModel.continueClicked(OnboardingViewModel.OnboardingStep.STEP3)
         }
+
     }
 
     override fun onItemClick(containerView: View, checkView: View, value: String) {

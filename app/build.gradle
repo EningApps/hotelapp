@@ -64,4 +64,6 @@ dependencies {
 
     implementation "android.arch.navigation:navigation-fragment:$nav_version"
     implementation "android.arch.navigation:navigation-ui:$nav_version"
+
+    implementation "com.airbnb.android:lottie:$lottieVersion"
 }

@@ -10,4 +10,5 @@ class OnboardingListItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     val iconImage: ImageView = view.imageView
     val iconText: TextView = view.textView
+    val checkView: View = view.checkView
 }

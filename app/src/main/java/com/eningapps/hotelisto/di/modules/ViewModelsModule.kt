@@ -5,6 +5,7 @@ import android.arch.lifecycle.ViewModelProvider
 import com.eningapps.hotelisto.di.utils.ViewModelFactory
 import com.eningapps.hotelisto.di.utils.ViewModelKey
 import com.eningapps.hotelisto.viewmodel.MainViewModel
+import com.eningapps.hotelisto.viewmodel.OnboardingViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -23,5 +24,11 @@ abstract class ViewModelsModule {
     @IntoMap
     @ViewModelKey(MainViewModel::class)
     internal abstract fun bindMainViewModel(mainViewModel: MainViewModel): ViewModel
+
+    @Singleton
+    @Binds
+    @IntoMap
+    @ViewModelKey(OnboardingViewModel::class)
+    internal abstract fun bindOnboardingViewModel(onboardingViewModel: OnboardingViewModel): ViewModel
 
 }
