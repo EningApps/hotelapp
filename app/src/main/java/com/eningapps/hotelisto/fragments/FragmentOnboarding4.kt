@@ -39,7 +39,7 @@ class FragmentOnboarding4 : Fragment() {
         content.setSpan(UnderlineSpan(), 0, content.length, 0)
         view.continueBtn.text = content
         view.continueBtn.setOnClickListener {
-            viewModel.continueClicked(OnboardingViewModel.OnboardingStep.STEP1)
+            viewModel.continueClicked(OnboardingViewModel.OnboardingStep.STEP4)
         }
     }
 
