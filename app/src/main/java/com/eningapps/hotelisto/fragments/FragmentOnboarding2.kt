@@ -1,7 +1,12 @@
 package com.eningapps.hotelisto.fragments
 
+import android.animation.AnimatorSet
+import android.animation.ArgbEvaluator
+import android.animation.ObjectAnimator
+import android.animation.ValueAnimator
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
+import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -26,6 +31,8 @@ class FragmentOnboarding2 : Fragment(), OnboardingAdapter.ItemClickListener {
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
     private lateinit var viewModel: OnboardingViewModel
+
+    private var shouldAnimate = true
 
     private val rvItems = arrayListOf(
         ItemWrapper(R.drawable.music, "Music"),
@@ -67,9 +74,39 @@ class FragmentOnboarding2 : Fragment(), OnboardingAdapter.ItemClickListener {
         if (choosenValues.contains(value)) {
             choosenValues.remove(value)
             checkView.isActivated = false
+            if (choosenValues.size < 3 && shouldAnimate) {
+                shouldAnimate = false
+                changeBtnText(true)
+            }
         } else {
             choosenValues.add(value)
             checkView.isActivated = true
+            if (choosenValues.size == 3) {
+                changeBtnText(false)
+                shouldAnimate = true
+            }
         }
+    }
+
+    private fun changeBtnText(reverse: Boolean) {
+        val colorFrom = if (reverse) resources.getColor(R.color.green) else resources.getColor(R.color.white)
+        val colorTo = if (reverse) resources.getColor(R.color.white) else resources.getColor(R.color.green)
+        val bgColorAnimator = ValueAnimator.ofObject(ArgbEvaluator(), colorFrom, colorTo)
+        val textColorStart = if (reverse) Color.WHITE else Color.BLACK
+        val textColorEnd = if (reverse) Color.BLACK else Color.WHITE
+        val textColorAnimator = ObjectAnimator.ofArgb(continueBtn, "textColor", textColorStart, textColorEnd)
+        val textEnd = if (reverse) resources.getString(R.string.choose_at_leat_3_items) else "CONTINUE"
+        val set = AnimatorSet().apply {
+            playTogether(bgColorAnimator, textColorAnimator)
+            duration = 250
+        }
+        bgColorAnimator.addUpdateListener { animator ->
+            continueBtn.setBackgroundColor(animator.animatedValue as Int)
+        }
+        textColorAnimator.addUpdateListener { animator ->
+            continueBtn.setTextColor(animator.animatedValue as Int)
+            continueBtn.text = textEnd
+        }
+        set.start()
     }
 }

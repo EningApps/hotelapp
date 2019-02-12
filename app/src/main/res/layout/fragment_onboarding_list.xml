@@ -20,18 +20,20 @@
                                         android:layout_gravity="center_horizontal|bottom">
 
         <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:layout_gravity="center_vertical"
                 android:fontFamily="sans-serif"
+                android:gravity="center"
                 android:textStyle="normal"
                 android:id="@+id/continueBtn"
                 android:letterSpacing="0.02"
                 android:lineSpacingExtra="8sp"
                 android:textColor="#494949"
                 android:padding="10dp"
-                android:text="Chose at least 3 items"/>
+                android:textAllCaps="true"
+                android:text="@string/choose_at_leat_3_items"/>
 
     </android.support.v7.widget.CardView>
 
