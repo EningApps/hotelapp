@@ -32,6 +32,7 @@ public interface AppComponent {
     }
 
     fun inject(mainActivity: MainActivity)
+    fun inject(onboardingLogin: FragmentLogin)
     fun inject(onboardingFragment1: FragmentOnboarding1)
     fun inject(onboardingFragment2: FragmentOnboarding2)
     fun inject(onboardingFragment3: FragmentOnboarding3)

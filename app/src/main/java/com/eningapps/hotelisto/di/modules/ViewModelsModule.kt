@@ -4,6 +4,7 @@ import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import com.eningapps.hotelisto.di.utils.ViewModelFactory
 import com.eningapps.hotelisto.di.utils.ViewModelKey
+import com.eningapps.hotelisto.viewmodel.LoginViewModel
 import com.eningapps.hotelisto.viewmodel.MainViewModel
 import com.eningapps.hotelisto.viewmodel.OnboardingViewModel
 import com.eningapps.hotelisto.viewmodel.SplashViewModel
@@ -37,5 +38,11 @@ abstract class ViewModelsModule {
     @IntoMap
     @ViewModelKey(OnboardingViewModel::class)
     internal abstract fun bindOnboardingViewModel(onboardingViewModel: OnboardingViewModel): ViewModel
+
+    @Singleton
+    @Binds
+    @IntoMap
+    @ViewModelKey(LoginViewModel::class)
+    internal abstract fun bindLoginViewModel(loginViewModel: LoginViewModel): ViewModel
 
 }

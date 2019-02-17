@@ -16,6 +16,7 @@ class MainNavigator(fragmentManager: FragmentManager, containerId: Int) :
             Screens.ONBOARING3.name -> FragmentOnboarding3()
             Screens.ONBOARING4.name -> FragmentOnboarding4()
             Screens.MAIN.name -> FragmentMain()
+            Screens.LOGIN.name -> FragmentLogin()
             else -> null
         }
     }

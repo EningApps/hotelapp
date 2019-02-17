@@ -19,11 +19,12 @@ class SplashViewModel @Inject constructor(
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe { navigateToOnboarding ->
-                if (navigateToOnboarding) {
-                    router.navigateTo(Screens.ONBOARING1.name)
-                } else {
-                    router.navigateTo(Screens.MAIN.name)
-                }
+                //                if (navigateToOnboarding) {
+//                    router.navigateTo(Screens.ONBOARING1.name)
+//                } else {
+//                    router.navigateTo(Screens.MAIN.name)
+//                }
+                router.navigateTo(Screens.LOGIN.name)
             }
     }
 

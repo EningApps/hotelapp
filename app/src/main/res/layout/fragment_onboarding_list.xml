@@ -27,7 +27,7 @@
                 android:fontFamily="sans-serif"
                 android:gravity="center"
                 android:textStyle="normal"
-                android:id="@+id/continueBtn"
+                android:id="@+id/loginBtn"
                 android:letterSpacing="0.02"
                 android:lineSpacingExtra="8sp"
                 android:textColor="#494949"

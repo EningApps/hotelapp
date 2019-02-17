@@ -2,6 +2,7 @@ package com.eningapps.hotelisto.navigation
 
 
 enum class Screens {
+    LOGIN,
     ONBOARING1,
     ONBOARING2,
     ONBOARING3,

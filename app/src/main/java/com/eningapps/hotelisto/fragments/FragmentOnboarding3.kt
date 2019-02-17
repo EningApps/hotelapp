@@ -62,7 +62,7 @@ class FragmentOnboarding3 : Fragment(), OnboardingAdapter.ItemClickListener {
         recyclerView.adapter = adaper
         recyclerView.addItemDecoration(SpacesItemDecoration(40));
         recyclerView.setHasFixedSize(true)
-        continueBtn.setOnClickListener {
+        loginBtn.setOnClickListener {
             viewModel.addInterests(choosenValues)
             viewModel.continueClicked(OnboardingViewModel.OnboardingStep.STEP3)
         }
@@ -93,18 +93,18 @@ class FragmentOnboarding3 : Fragment(), OnboardingAdapter.ItemClickListener {
         val bgColorAnimator = ValueAnimator.ofObject(ArgbEvaluator(), colorFrom, colorTo)
         val textColorStart = if (reverse) Color.WHITE else Color.BLACK
         val textColorEnd = if (reverse) Color.BLACK else Color.WHITE
-        val textColorAnimator = ObjectAnimator.ofArgb(continueBtn, "textColor", textColorStart, textColorEnd)
+        val textColorAnimator = ObjectAnimator.ofArgb(loginBtn, "textColor", textColorStart, textColorEnd)
         val textEnd = if (reverse) resources.getString(R.string.choose_at_leat_3_items) else "CONTINUE"
         val set = AnimatorSet().apply {
             playTogether(bgColorAnimator, textColorAnimator)
             duration = 250
         }
         bgColorAnimator.addUpdateListener { animator ->
-            continueBtn.setBackgroundColor(animator.animatedValue as Int)
+            loginBtn.setBackgroundColor(animator.animatedValue as Int)
         }
         textColorAnimator.addUpdateListener { animator ->
-            continueBtn.setTextColor(animator.animatedValue as Int)
-            continueBtn.text = textEnd
+            loginBtn.setTextColor(animator.animatedValue as Int)
+            loginBtn.text = textEnd
         }
         set.start()
     }

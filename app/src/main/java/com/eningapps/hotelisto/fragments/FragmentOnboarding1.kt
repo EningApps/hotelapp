@@ -36,8 +36,8 @@ class FragmentOnboarding1 : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val content = SpannableString("NEXT")
         content.setSpan(UnderlineSpan(), 0, content.length, 0)
-        view.continueBtn.text = content
-        view.continueBtn.setOnClickListener {
+        view.loginBtn.text = content
+        view.loginBtn.setOnClickListener {
             viewModel.continueClicked(OnboardingViewModel.OnboardingStep.STEP1)
         }
     }
