@@ -12,6 +12,7 @@ class PreferencesManagerImpl @Inject constructor(
 
     companion object {
         const val KEY_SHOW_ONBOARDING = "KEY_GDPR_OPTOUT"
+        const val KEY_IS_LOGGED = "KEY_IS_LOGGED"
     }
 
     override fun shouldShowOnboarding(): Single<Boolean> = Single.fromCallable {
@@ -20,5 +21,14 @@ class PreferencesManagerImpl @Inject constructor(
 
     override fun setShowOnboarding(shouldShow: Boolean): Completable = Completable.fromAction {
         preferences.edit().putBoolean(KEY_SHOW_ONBOARDING, shouldShow).apply()
+    }
+
+    override fun isLoggedIn(): Single<Boolean> = Single.fromCallable {
+        preferences.getBoolean(KEY_IS_LOGGED, false)
+    }
+
+
+    override fun setLoggedIn(isLoggedIn: Boolean): Completable = Completable.fromAction {
+        preferences.edit().putBoolean(KEY_IS_LOGGED, isLoggedIn).apply()
     }
 }

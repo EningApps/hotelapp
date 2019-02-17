@@ -11,4 +11,8 @@ class SettingsRepositoryImpl @Inject constructor(
     override fun shouldShowOnboarding(): Single<Boolean> = preferencesManager.shouldShowOnboarding()
 
     override fun setShowOnboarding(shouldShow: Boolean): Completable = preferencesManager.setShowOnboarding(shouldShow)
+
+    override fun isLoggedIn(): Single<Boolean> = preferencesManager.isLoggedIn()
+
+    override fun setLoggedIn(isLoggedIn: Boolean): Completable = preferencesManager.setLoggedIn(isLoggedIn)
 }

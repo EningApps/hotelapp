@@ -13,7 +13,7 @@ import android.view.animation.AnimationUtils
 import com.eningapps.hotelisto.App
 import com.eningapps.hotelisto.R
 import com.eningapps.hotelisto.viewmodel.OnboardingViewModel
-import kotlinx.android.synthetic.main.fragment_onboarding_welcome.view.*
+import kotlinx.android.synthetic.main.fragment_onboarding_finish.view.*
 import javax.inject.Inject
 
 
@@ -47,5 +47,6 @@ class FragmentOnboarding4 : Fragment() {
         super.onResume()
         val anim = AnimationUtils.loadAnimation(context, R.anim.zoom_in)
         view?.titleContainer?.startAnimation(anim)
+        view?.lottieConfetti?.playAnimation()
     }
 }

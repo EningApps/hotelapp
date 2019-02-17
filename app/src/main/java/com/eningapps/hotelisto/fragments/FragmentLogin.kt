@@ -10,6 +10,8 @@ import android.text.style.UnderlineSpan
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.view.inputmethod.EditorInfo
@@ -18,6 +20,7 @@ import android.widget.TextView
 import com.eningapps.hotelisto.App
 import com.eningapps.hotelisto.R
 import com.eningapps.hotelisto.viewmodel.LoginViewModel
+import com.eningapps.hotelisto.viewmodel.LoginViewModel.LoginState
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_onboarding_welcome.view.*
 import javax.inject.Inject
@@ -63,6 +66,12 @@ class FragmentLogin : Fragment() {
         rootContainer.setOnClickListener {
             hideKeyboard()
         }
+
+        viewModel
+            .loginState()
+            .subscribe {
+                showLoginState(it)
+            }
     }
 
     private fun hideKeyboard() {
@@ -85,6 +94,29 @@ class FragmentLogin : Fragment() {
             passwordEditText.startAnimation(anim)
             return false
         }
+        viewModel.processLogin(loginEditText.text.toString(), passwordEditText.text.toString())
         return true
+    }
+
+    private fun showLoginState(state: LoginState) {
+        when (state) {
+            LoginState.VALID -> {
+                progressSpinner.visibility = GONE
+                incorrectCredintText.visibility = GONE
+            }
+            LoginState.PROCESS -> {
+                progressSpinner.visibility = VISIBLE
+                incorrectCredintText.visibility = GONE
+            }
+            LoginState.ERROR -> {
+                progressSpinner.visibility = GONE
+                incorrectCredintText.visibility = VISIBLE
+            }
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        viewModel.onViewAttach()
     }
 }
