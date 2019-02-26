@@ -40,4 +40,5 @@ ext {
     glideVersion = '4.8.0'
     nav_version = "1.0.0-alpha09"
     lottieVersion = '2.5.5'
+    stackViewVersion = '2.2.3'
 }

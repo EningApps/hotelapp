@@ -1,10 +1,10 @@
 package com.eningapps.hotelisto.di.modules
 
 import com.eningapps.hotelisto.BuildConfig
-import com.eningapps.hotelisto.data.manager.HotelsApiManager
-import com.eningapps.hotelisto.data.manager.HotelsApiManagerImpl
+import com.eningapps.hotelisto.data.manager.NewsApiManager
+import com.eningapps.hotelisto.data.manager.NewsApiManagerImpl
 import com.eningapps.hotelisto.data.network.interceptors.AddApiKeyInterceptor
-import com.eningapps.hotelisto.data.network.services.HotelsApiService
+import com.eningapps.hotelisto.data.network.services.NewsApiService
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
@@ -42,7 +42,7 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun provideApiService(okHttpClient: OkHttpClient): HotelsApiService {
+    fun provideApiService(okHttpClient: OkHttpClient): NewsApiService {
         val gson = GsonBuilder()
             .setLenient()
             .create()
@@ -52,11 +52,11 @@ class NetworkModule {
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
-            .create(HotelsApiService::class.java)
+            .create(NewsApiService::class.java)
     }
 
     @Singleton
     @Provides
-    fun provideApiManager(impl: HotelsApiManagerImpl): HotelsApiManager = impl
+    fun provideApiManager(impl: NewsApiManagerImpl): NewsApiManager = impl
 
 }

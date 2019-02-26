@@ -66,4 +66,6 @@ dependencies {
     implementation "android.arch.navigation:navigation-ui:$nav_version"
 
     implementation "com.airbnb.android:lottie:$lottieVersion"
+
+    implementation "com.yuyakaido.android:card-stack-view:$stackViewVersion"
 }

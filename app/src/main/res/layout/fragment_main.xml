@@ -1,13 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/mainContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <android.support.v7.widget.RecyclerView
-            android:id="@+id/mainContentRecyclerView"
+    <com.yuyakaido.android.cardstackview.CardStackView
+            android:id="@+id/mainContentCardStackView"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:background="@drawable/main_container_bg"
+            android:layout_height="0dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/likeBtn"/>
 
-</FrameLayout>
+    <android.support.design.widget.FloatingActionButton
+            android:id="@+id/likeBtn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="64dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/like"
+            android:layout_height="64dp" app:layout_constraintStart_toEndOf="@+id/dislikeBtn"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.5"/>
+
+    <android.support.design.widget.FloatingActionButton
+            android:id="@+id/dislikeBtn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/dislike"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/likeBtn" app:layout_constraintHorizontal_bias="0.5"/>
+
+</android.support.constraint.ConstraintLayout>

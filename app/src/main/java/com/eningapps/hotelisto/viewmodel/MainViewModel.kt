@@ -1,7 +1,8 @@
 package com.eningapps.hotelisto.viewmodel
 
 import android.arch.lifecycle.ViewModel
-import com.eningapps.hotelisto.data.repositories.HotelsRepository
+import com.eningapps.hotelisto.data.entities.internal.News
+import com.eningapps.hotelisto.data.repositories.NewsRepository
 import com.eningapps.hotelisto.navigation.AppRouter
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -10,25 +11,26 @@ import io.reactivex.subjects.BehaviorSubject
 import javax.inject.Inject
 
 class MainViewModel @Inject constructor(
-    private val hotelsRepository: HotelsRepository,
+    private val newsRepository: NewsRepository,
     private val router: AppRouter
 ) : ViewModel() {
 
-    private val photosUrlsSubject = BehaviorSubject.create<List<String>>()
+    private val newsSubject = BehaviorSubject.create<List<News>>()
 
-    val photosUrls: Observable<List<String>> = photosUrlsSubject
+    val photosUrls: Observable<List<News>> = newsSubject
 
     fun onViewAttach() {
-        hotelsRepository
-            .getRecentPhotos("")
-            .map {
-                it.map { it.url }
-            }
+        newsRepository
+            .getNews("")
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe {
-                photosUrlsSubject.onNext(it)
+                newsSubject.onNext(it)
             }
+    }
+
+    fun moreCLicked(newsUrl: String) {
+
     }
 
 }
