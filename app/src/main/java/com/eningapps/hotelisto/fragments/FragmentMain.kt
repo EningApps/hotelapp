@@ -79,6 +79,11 @@ class FragmentMain : Fragment(), NewsAdapter.NewsClickListener {
             cardStackView.swipe()
             playAnimation(false)
         }
+
+        bottomNavigationView.setOnNavigationItemSelectedListener {
+            mainViewModel.loadNews(it.title.toString())
+            true
+        }
     }
 
     override fun onStart() {

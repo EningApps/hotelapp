@@ -34,4 +34,17 @@ class MainViewModel @Inject constructor(
         router.navigateTo(Screens.NEWS_WEB_VIEW.name, newsUrl)
     }
 
+    fun loadNews(titleMenu: String) {
+        val get = when (titleMenu) {
+            "Recomended" -> newsRepository.reloadRecomended()
+            "Popular" -> newsRepository.reloadHot()
+            else -> newsRepository.reloadRecent()
+        }
+        get.subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe {
+                newsSubject.onNext(it)
+            }
+    }
+
 }

@@ -7,4 +7,8 @@ interface NewsRepository {
 
     fun getNews(username: String): Observable<List<News>>
 
+    fun reloadRecomended(): Observable<List<News>>
+    fun reloadHot(): Observable<List<News>>
+    fun reloadRecent(): Observable<List<News>>
+
 }
