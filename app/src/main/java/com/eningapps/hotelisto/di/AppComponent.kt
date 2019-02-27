@@ -38,6 +38,7 @@ public interface AppComponent {
     fun inject(onboardingFragment3: FragmentOnboarding3)
     fun inject(onboardingFragment4: FragmentOnboarding4)
     fun inject(onboardingMain: FragmentMain)
+    fun inject(newsWebView: FragmentNewsWebView)
 
     fun provideNavigatorHolder(): NavigatorHolder
 

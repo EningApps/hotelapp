@@ -4,6 +4,7 @@ import android.arch.lifecycle.ViewModel
 import com.eningapps.hotelisto.data.entities.internal.News
 import com.eningapps.hotelisto.data.repositories.NewsRepository
 import com.eningapps.hotelisto.navigation.AppRouter
+import com.eningapps.hotelisto.navigation.Screens
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -30,7 +31,7 @@ class MainViewModel @Inject constructor(
     }
 
     fun moreCLicked(newsUrl: String) {
-
+        router.navigateTo(Screens.NEWS_WEB_VIEW.name, newsUrl)
     }
 
 }

@@ -52,26 +52,32 @@ class FragmentMain : Fragment(), NewsAdapter.NewsClickListener {
         .setInterpolator(AccelerateInterpolator())
         .build()
 
+    private var currendPosition = 0
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val manager = CardStackLayoutManager(context)
         manager.setDirections(HORIZONTAL)
-        mainContentCardStackView.layoutManager = manager
+        cardStackView.layoutManager = manager
         feedAdapter = NewsAdapter(context!!, this)
-        mainContentCardStackView.adapter = feedAdapter
+        cardStackView.adapter = feedAdapter
+
 
         mainViewModel.photosUrls.subscribe {
             updateContent(it)
         }
 
+
         view.likeBtn.setOnClickListener {
             manager.setSwipeAnimationSetting(swipeRight)
-            mainContentCardStackView.swipe()
+            cardStackView.swipe()
+            playAnimation(true)
         }
         view.dislikeBtn.setOnClickListener {
             manager.setSwipeAnimationSetting(swipeLeft)
-            mainContentCardStackView.swipe()
+            cardStackView.swipe()
+            playAnimation(false)
         }
     }
 
@@ -86,5 +92,26 @@ class FragmentMain : Fragment(), NewsAdapter.NewsClickListener {
 
     private fun updateContent(news: List<News>) {
         feedAdapter.updateNews(news)
+    }
+
+    private fun playAnimation(like: Boolean) {
+        if (like) {
+            likeAnimView.alpha = 1f
+            likeAnimView.animate()
+                .alpha(0f).apply {
+                    startDelay = 150L
+                    duration = 150L
+                }
+                .start()
+
+        } else {
+            dislikeAnimView.alpha = 1f
+            dislikeAnimView.animate()
+                .alpha(0f).apply {
+                    startDelay = 150L
+                    duration = 150L
+                }
+                .start()
+        }
     }
 }

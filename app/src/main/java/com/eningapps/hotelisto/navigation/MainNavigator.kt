@@ -20,6 +20,7 @@ class MainNavigator(fragmentManager: FragmentManager, containerId: Int) :
             Screens.ONBOARING4.name -> FragmentOnboarding4()
             Screens.MAIN.name -> FragmentMain()
             Screens.LOGIN.name -> FragmentLogin()
+            Screens.NEWS_WEB_VIEW.name -> FragmentNewsWebView.newInstance(data as String)
             else -> null
         }
     }
@@ -32,6 +33,7 @@ class MainNavigator(fragmentManager: FragmentManager, containerId: Int) :
     ) {
         when (nextFragment) {
             is FragmentLogin,
+            is FragmentNewsWebView,
             is FragmentMain -> {
                 //do nothing
             }

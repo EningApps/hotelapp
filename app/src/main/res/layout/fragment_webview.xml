@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+    <ProgressBar android:layout_width="128dp"
+                 android:layout_gravity="center"
+                 android:indeterminate="true"
+                 android:indeterminateTint="@color/colorPrimary"
+                 android:indeterminateTintMode="src_in"
+                 android:layout_height="128dp"/>
+
+    <WebView
+            android:id="@+id/newsWebView"
+            android:alpha="0"
+            android:layout_width="match_parent" android:layout_height="match_parent"/>
+
+</FrameLayout>

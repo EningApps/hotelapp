@@ -7,5 +7,6 @@ enum class Screens {
     ONBOARING2,
     ONBOARING3,
     ONBOARING4,
-    MAIN
+    MAIN,
+    NEWS_WEB_VIEW
 }

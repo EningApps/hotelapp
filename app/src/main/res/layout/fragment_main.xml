@@ -3,38 +3,96 @@
         xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/mainContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
-    <com.yuyakaido.android.cardstackview.CardStackView
-            android:id="@+id/mainContentCardStackView"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
+    <android.support.design.widget.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
             android:layout_width="match_parent"
-            android:background="@drawable/main_container_bg"
-            android:layout_height="0dp"
-            android:layout_marginBottom="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/likeBtn"/>
-
-    <android.support.design.widget.FloatingActionButton
-            android:id="@+id/likeBtn"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="0dp"
+            android:layout_marginStart="0dp"
+            app:itemIconTint="@color/btn_nav_view_color"
+            app:itemIconSize="24dp"
+            android:background="?android:attr/windowBackground"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:itemBackground="@color/colorPrimaryDark"
+            app:itemTextColor="@color/btn_nav_view_color"
+            app:menu="@menu/bottom_navigation_menu"/>
+
+    <android.support.v7.widget.CardView android:id="@+id/cardStackContainer"
+                                        android:layout_marginTop="20dp"
+                                        android:layout_marginLeft="16dp"
+                                        android:layout_marginRight="16dp"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintLeft_toLeftOf="parent"
+                                        android:layout_width="match_parent"
+                                        android:background="@color/colorPrimary"
+                                        android:padding="10dp"
+                                        app:cardCornerRadius="5dp"
+                                        android:layout_height="0dp"
+                                        android:elevation="50dp"
+                                        android:layout_marginBottom="20dp"
+                                        app:layout_constraintBottom_toTopOf="@+id/likeBtn">
+
+        <com.yuyakaido.android.cardstackview.CardStackView
+                android:id="@+id/cardStackView"
+                android:layout_width="match_parent"
+                android:background="@drawable/main_container_bg"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                app:layout_constraintBottom_toTopOf="@+id/likeBtn"/>
+
+        <ImageView
+                android:id="@+id/dislikeAnimView"
+                android:layout_width="144dp"
+                android:layout_height="144dp"
+                android:src="@drawable/nope_tinder"
+                android:alpha="0"
+                android:layout_gravity="top|left"
+                android:layout_margin="32dp"
+        />
+
+        <ImageView
+                android:id="@+id/likeAnimView"
+                android:layout_width="144dp"
+                android:layout_height="144dp"
+                android:src="@drawable/like_tinder"
+                android:alpha="0"
+                android:layout_gravity="top|right"
+                android:layout_margin="32dp"
+        />
+
+    </android.support.v7.widget.CardView>
+
+
+    <ImageView
+            android:id="@+id/likeBtn"
+            app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
             android:layout_width="64dp"
             android:layout_marginBottom="20dp"
             android:src="@drawable/like"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:elevation="24dp"
+            android:background="@drawable/round_bg"
+            android:padding="12dp"
             android:layout_height="64dp" app:layout_constraintStart_toEndOf="@+id/dislikeBtn"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.5"/>
 
-    <android.support.design.widget.FloatingActionButton
+    <ImageView
             android:id="@+id/dislikeBtn"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
             android:layout_width="64dp"
             android:layout_height="64dp"
+            android:padding="10dp"
             android:layout_marginBottom="20dp"
+            android:background="@drawable/round_bg"
+            android:foreground="?android:attr/selectableItemBackground"
             android:src="@drawable/dislike"
+            android:elevation="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/likeBtn" app:layout_constraintHorizontal_bias="0.5"/>
 
