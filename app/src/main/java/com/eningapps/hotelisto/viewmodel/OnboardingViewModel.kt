@@ -4,15 +4,12 @@ import android.arch.lifecycle.ViewModel
 import com.eningapps.hotelisto.data.repositories.SettingsRepository
 import com.eningapps.hotelisto.navigation.AppRouter
 import com.eningapps.hotelisto.navigation.Screens
-import java.util.*
 import javax.inject.Inject
 
 class OnboardingViewModel @Inject constructor(
     private val router: AppRouter,
     private val settingsRepository: SettingsRepository
 ) : ViewModel() {
-
-    private val interestsList: MutableList<String> = ArrayList()
 
     enum class OnboardingStep {
         STEP1, STEP2, STEP3, STEP4
@@ -33,13 +30,9 @@ class OnboardingViewModel @Inject constructor(
                 settingsRepository
                     .setShowOnboarding(false)
                     .subscribe {
-                        router.navigateTo(Screens.MAIN.name)
+                        router.navigateTo(Screens.INIT_LOADING.name)
                     }
             }
         }
-    }
-
-    fun addInterests(interests: List<String>) {
-        interestsList.addAll(interests)
     }
 }

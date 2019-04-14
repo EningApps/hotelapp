@@ -5,15 +5,8 @@
         android:id="@+id/appContainer"
         android:layout_width="match_parent"
         android:background="@color/colorPrimary"
+        android:padding="20dp"
         android:layout_height="match_parent">
-
-    <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottieConfetti"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:lottie_autoPlay="false"
-            android:layout_gravity="center"
-            app:lottie_rawRes="@raw/confetti"/>
 
     <android.support.v7.widget.CardView
             android:id="@+id/titleContainer"
@@ -23,38 +16,14 @@
             app:layout_constraintBottom_toTopOf="@+id/loginBtn"
             app:cardElevation="8dp"
             app:cardCornerRadius="8dp"
-            android:layout_width="340dp"
-            android:layout_height="400dp" app:layout_constraintVertical_bias="0.22000003">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:layout_constraintVertical_bias="0.22000003">
 
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_margin="10dp"
-                android:layout_gravity="center"
                 android:layout_height="wrap_content">
-
-            <ImageView
-                    android:id="@+id/iconView"
-                    android:layout_width="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_gravity="center_horizontal"
-                    android:src="@drawable/conrats"
-                    android:scaleType="centerCrop"
-                    android:layout_height="wrap_content"/>
-
-            <TextView
-                    android:layout_marginTop="20dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="22sp"
-                    android:fontFamily="sans-serif"
-                    android:layout_gravity="center"
-                    android:textStyle="bold"
-                    android:textColor="#454545"
-                    android:letterSpacing="0.02"
-                    android:lineSpacingExtra="4sp"
-                    android:gravity="center_horizontal"
-                    android:text="Отлично!"/>
 
             <TextView
                     android:layout_marginTop="20dp"
@@ -70,7 +39,7 @@
                     android:letterSpacing="0.02"
                     android:lineSpacingExtra="8sp"
                     android:gravity="center_horizontal"
-                    android:text="Пора приступить к настройке своего умного дома!"/>
+                    android:text="Нажмите на крестик, чтобы добавит новое устройство."/>
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
@@ -94,6 +63,5 @@
             android:letterSpacing="0.02"
             android:lineSpacingExtra="8sp"
             android:gravity="center_horizontal"
-            android:text="ПЕРЕЙТИ В ПРИЛОЖЕНИЕ"/>
-
+            android:text="Next"/>
 </android.support.constraint.ConstraintLayout>

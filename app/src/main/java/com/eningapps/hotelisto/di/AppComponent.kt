@@ -32,13 +32,12 @@ public interface AppComponent {
     }
 
     fun inject(mainActivity: MainActivity)
-    fun inject(onboardingLogin: FragmentLogin)
+    fun inject(fragmentInitLoading: FragmentInitLoading)
     fun inject(onboardingFragment1: FragmentOnboarding1)
     fun inject(onboardingFragment2: FragmentOnboarding2)
     fun inject(onboardingFragment3: FragmentOnboarding3)
     fun inject(onboardingFragment4: FragmentOnboarding4)
     fun inject(onboardingMain: FragmentMain)
-    fun inject(newsWebView: FragmentNewsWebView)
 
     fun provideNavigatorHolder(): NavigatorHolder
 

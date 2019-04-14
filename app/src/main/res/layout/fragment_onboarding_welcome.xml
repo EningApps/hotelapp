@@ -5,6 +5,7 @@
         android:id="@+id/appContainer"
         android:layout_width="match_parent"
         android:background="@color/colorPrimary"
+        android:padding="20dp"
         android:layout_height="match_parent">
 
     <android.support.v7.widget.CardView
@@ -26,11 +27,11 @@
 
             <ImageView
                     android:id="@+id/iconView"
-                    android:layout_width="100dp"
+                    android:layout_width="250dp"
                     android:layout_marginTop="20dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/study_icon"
-                    android:layout_height="100dp"/>
+                    android:src="@drawable/smarthouse"
+                    android:layout_height="250dp"/>
 
             <TextView
                     android:layout_marginTop="20dp"
@@ -44,7 +45,7 @@
                     android:letterSpacing="0.02"
                     android:lineSpacingExtra="4sp"
                     android:gravity="center_horizontal"
-                    android:text="@string/hey_wanna_study_budy"/>
+                    android:text="Добро пожаловать в приложение SyncHouse!"/>
 
             <TextView
                     android:layout_marginTop="20dp"
@@ -60,7 +61,7 @@
                     android:letterSpacing="0.02"
                     android:lineSpacingExtra="8sp"
                     android:gravity="center_horizontal"
-                    android:text="This up can help you \nto learn something new"/>
+                    android:text="С его помощью вы всегда сможете узнать информацию о состоянии вашего умного дома!"/>
         </LinearLayout>
     </android.support.v7.widget.CardView>
 

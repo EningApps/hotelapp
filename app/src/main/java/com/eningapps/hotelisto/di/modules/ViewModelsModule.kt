@@ -4,7 +4,10 @@ import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import com.eningapps.hotelisto.di.utils.ViewModelFactory
 import com.eningapps.hotelisto.di.utils.ViewModelKey
-import com.eningapps.hotelisto.viewmodel.*
+import com.eningapps.hotelisto.viewmodel.InitLoadingViewModel
+import com.eningapps.hotelisto.viewmodel.MainViewModel
+import com.eningapps.hotelisto.viewmodel.OnboardingViewModel
+import com.eningapps.hotelisto.viewmodel.SplashViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -39,13 +42,6 @@ abstract class ViewModelsModule {
     @Singleton
     @Binds
     @IntoMap
-    @ViewModelKey(LoginViewModel::class)
-    internal abstract fun bindLoginViewModel(loginViewModel: LoginViewModel): ViewModel
-
-    @Singleton
-    @Binds
-    @IntoMap
-    @ViewModelKey(WebViewViewModel::class)
-    internal abstract fun bindWebViewViewModel(webViewViewModel: WebViewViewModel): ViewModel
-
+    @ViewModelKey(InitLoadingViewModel::class)
+    internal abstract fun bindInitLoadingViewModel(initLoadingViewModel: InitLoadingViewModel): ViewModel
 }

@@ -14,13 +14,12 @@ class MainNavigator(fragmentManager: FragmentManager, containerId: Int) :
     override fun createFragment(screenKey: String?, data: Any?): Fragment? {
         return when (screenKey) {
             // Main
+            Screens.INIT_LOADING.name -> FragmentInitLoading()
             Screens.ONBOARING1.name -> FragmentOnboarding1()
             Screens.ONBOARING2.name -> FragmentOnboarding2()
             Screens.ONBOARING3.name -> FragmentOnboarding3()
             Screens.ONBOARING4.name -> FragmentOnboarding4()
             Screens.MAIN.name -> FragmentMain()
-            Screens.LOGIN.name -> FragmentLogin()
-            Screens.NEWS_WEB_VIEW.name -> FragmentNewsWebView.newInstance(data as String)
             else -> null
         }
     }
@@ -32,9 +31,7 @@ class MainNavigator(fragmentManager: FragmentManager, containerId: Int) :
         fragmentTransaction: FragmentTransaction?
     ) {
         when (nextFragment) {
-            is FragmentLogin,
-            is FragmentNewsWebView,
-            is FragmentMain -> {
+            is FragmentMain, is FragmentOnboarding1, is FragmentInitLoading -> {
                 //do nothing
             }
             else -> {

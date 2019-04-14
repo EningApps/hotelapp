@@ -35,7 +35,7 @@ class FragmentOnboarding4 : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val content = SpannableString("GO TO FEED")
+        val content = SpannableString("ПЕРЕЙТИ В ПРИЛОЖЕНИЕ")
         content.setSpan(UnderlineSpan(), 0, content.length, 0)
         view.loginBtn.text = content
         view.loginBtn.setOnClickListener {
