@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal">
+
+    <ImageView
+            android:id="@+id/lightDownBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@color/white"
+            android:layout_marginRight="8dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:src="@drawable/light_down"/>
+
+    <ImageView
+            android:id="@+id/lightStateImg1"
+            android:layout_width="8dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/light_icon"
+            android:layout_margin="1dp"
+            android:layout_height="16dp"/>
+
+    <ImageView
+            android:id="@+id/lightStateImg2"
+            android:layout_width="8dp"
+            android:src="@drawable/light_icon"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="1dp"
+            android:layout_height="16dp"/>
+
+    <ImageView
+            android:id="@+id/lightStateImg3"
+            android:layout_width="8dp"
+            android:src="@drawable/light_icon"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="1dp"
+            android:visibility="invisible"
+            android:layout_height="16dp"/>
+
+    <ImageView
+            android:id="@+id/lightUpBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@color/white"
+            android:layout_marginLeft="8dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:src="@drawable/light_up"/>
+</LinearLayout>

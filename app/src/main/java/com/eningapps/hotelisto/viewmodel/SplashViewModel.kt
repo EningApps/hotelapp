@@ -15,7 +15,7 @@ class SplashViewModel @Inject constructor(
         settingsRepository
             .shouldShowOnboarding()
             .subscribe { shouldShow ->
-                router.navigateTo(Screens.ONBOARING1.name)
+                router.navigateTo(Screens.MAIN.name)
 //
 //                if (shouldShow) {
 //                router.navigateTo(Screens.ONBOARING1.name)
