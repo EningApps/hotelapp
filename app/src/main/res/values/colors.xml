@@ -11,4 +11,5 @@
     <color name="blueMainLight">#3697DB</color>
     <color name="shadow_black">#86000000</color>
     <color name="shadow_gray">#0bd5d5d5</color>
+    <color name="main_gold">#FBBC0E</color>
 </resources>

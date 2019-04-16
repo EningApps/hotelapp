@@ -11,6 +11,13 @@
     <dimen name="item_right_margin">16dp</dimen>
     <dimen name="item_text_size">14sp</dimen>
     <dimen name="card_mar_side">10dp</dimen>
-    <dimen name="card_margin_above">16dp</dimen>
+    <dimen name="card_margin_above">8dp</dimen>
     <dimen name="card_elevation">20dp</dimen>
+    <dimen name="fab_size">36dp</dimen>
+    <dimen name="fab_elevation">4dp</dimen>
+    <dimen name="fab_trans_z">4dp</dimen>
+    <dimen name="fab_margin">8dp</dimen>
+    <dimen name="card_margin_inside">25dp</dimen>
+    <dimen name="card_margin_inside_sides">10dp</dimen>
+    <dimen name="card_corners">10dp</dimen>
 </resources>
