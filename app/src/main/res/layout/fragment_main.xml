@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/mainContainer"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white">
+        android:layout_height="match_parent">
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/colorPrimary"
+            tools:context=".MainActivity">
 
+        <include layout="@layout/layout_security"/>
 
-</android.support.constraint.ConstraintLayout>
+        <include layout="@layout/layout_kitchen"/>
+
+        <include layout="@layout/layout_light"/>
+
+    </LinearLayout>
+</ScrollView>

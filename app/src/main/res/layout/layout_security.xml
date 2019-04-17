@@ -68,6 +68,7 @@
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         android:layout_marginRight="@dimen/item_right_margin"
+                        style="@style/SwitchTheme"
                         app:layout_constraintBottom_toBottomOf="parent"/>
             </android.support.constraint.ConstraintLayout>
 
@@ -98,10 +99,14 @@
                         app:layout_constraintTop_toTopOf="parent"/>
 
                 <TextView
+                        android:id="@+id/watchCamerasBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Смотреть"
                         android:layout_marginRight="@dimen/item_right_margin"
+                        android:textSize="@dimen/item_action_size_text"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textColor="@color/watch_btn_color"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintRight_toRightOf="parent"/>
@@ -115,7 +120,6 @@
             android:layout_gravity="bottom|right"
             app:fabCustomSize="@dimen/fab_size"
             android:layout_margin="@dimen/fab_margin"
-
             android:layout_height="@dimen/fab_size"
             android:elevation="@dimen/fab_elevation"
             android:translationZ="@dimen/fab_trans_z"
